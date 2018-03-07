@@ -47,9 +47,6 @@ def main():
     parser.add_option('-o','--output',dest='output',help='output file to saveFile.txt', action='store_true')
     (options, args) = parser.parse_args()
     try:
-        #if not args:
-         #   author()
-          #  print(warna.cetak)
         if args and options.output:
             for arg in args:
                 if os.path.isfile(arg):
