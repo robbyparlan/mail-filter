@@ -9,6 +9,8 @@ class warna():
     ijo ='\033[1;32m'
     putih = '\033[1;37m'
     biru = '\033[1;34m'
+    kuning = '\033[1;33m'
+    abang = '\033[1;31m'
 
 def author():
     print('''%s
@@ -23,6 +25,7 @@ _  /  / / / /_/ /_  / _  /___  __/   _  / _  / / /_ /  __/  /
 [+] Tool        : MailFilter v.01
 [+] Description : Filter mailist Gmail, Yahoo, Hotmail
 [+] Usage       : python mailFilter.py nameMailist -o %s''' % (warna.ijo,warna.putih, warna.cetak))
+
 
 
 regex = re.compile(r'''(
@@ -51,10 +54,23 @@ def main():
             for arg in args:
                 if os.path.isfile(arg):
                     for email in get_emails(file_to_str(arg)):
-                        f =open('saveFile.txt', 'a')
-                        f.write(email+'\n')
-                        f.close()
-                    print('%sSucces to saveFile.txt%s' % (warna.biru, warna.cetak))
+                        if 'gmail' in email:
+                            f =open('gmailFile.txt', 'a')
+                            f.write(email+'\n')
+                            f.close()
+                        elif 'yahoo' in email:
+                            f = open('yahooFile.txt', 'a')
+                            f.write(email + '\n')
+                            f.close()
+                        else:
+                            f = open('hotmailFile.txt', 'a')
+                            f.write(email + '\n')
+                            f.close()
+                    author()
+                    print(warna.cetak)
+                    print('%s[+] Succes filter to gmailFile.txt   [+]%s' % (warna.biru, warna.cetak))
+                    print('%s[+] Succes filter to yahooFile.txt   [+]%s' % (warna.kuning, warna.cetak))
+                    print('%s[+] Succes filter to hotmailFile.txt [+]%s' % (warna.abang, warna.cetak))
                 else:
                     print('"{}" is not a file.').format(arg)
 
