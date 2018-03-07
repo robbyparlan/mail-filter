@@ -13,6 +13,8 @@
 
 This simple script for filter email on your email list.
 
-Usage : python mailfilter.py (your mailist) -o
+Usage : python mailfilter.py namemailist -o
 
-output file to a saveFile.txt
+example : python mailfilter.py mailist.txt -o
+
+output file to a gmailFile.txt, yahooFile.txt & hotmail.txt
