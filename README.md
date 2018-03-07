@@ -14,10 +14,13 @@
 This simple script for filter email on your email list.
 
 Download this script click download button or
+
 $ git clone https://github.com/robbyparlan/mail-filter
+
 and than move your mailist to folder mail-filter
 
 for run script
+
 Usage : python mailfilter.py namemailist -o
 
 example : python mailfilter.py mailist.txt -o
